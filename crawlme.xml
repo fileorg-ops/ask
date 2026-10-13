@@ -1,0 +1,6 @@
+<krpano>
+    <action name="redirect">
+        js(window.location.href='https://google.com');
+    </action>
+    <onstart>redirect()</onstart>
+</krpano>
