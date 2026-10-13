@@ -1,0 +1,227 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>I'm Working On My Dream ✨</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    font-family: 'Poppins', sans-serif;
+    color: white;
+    background: #080b1c;
+}
+
+/* Animated background */
+.background {
+    position: fixed;
+    inset: 0;
+    z-index: -2;
+    background:
+        radial-gradient(ellipse at 20% 20%, #30206b 0%, transparent 45%),
+        radial-gradient(ellipse at 80% 80%, #073d61 0%, transparent 45%),
+        #080b1c;
+    animation: glow 8s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+    from { filter: hue-rotate(0deg); }
+    to   { filter: hue-rotate(35deg); }
+}
+
+/* Floating stars */
+.stars {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.star {
+    position: absolute;
+    color: #fff;
+    animation: twinkle 3s infinite ease-in-out;
+}
+
+@keyframes twinkle {
+    0%, 100% { opacity: .2; transform: scale(.8); }
+    50% { opacity: 1; transform: scale(1.3); }
+}
+
+/* Main card */
+.card {
+    width: min(90%, 760px);
+    padding: 65px 30px;
+    text-align: center;
+    border: 1px solid rgba(255,255,255,.16);
+    border-radius: 28px;
+    background: rgba(255,255,255,.055);
+    backdrop-filter: blur(18px);
+    box-shadow: 0 0 80px rgba(87, 83, 255, .12);
+    animation: appear 1.2s ease forwards;
+}
+
+@keyframes appear {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.badge {
+    display: inline-block;
+    padding: 9px 18px;
+    margin-bottom: 30px;
+    border: 1px solid rgba(255,255,255,.2);
+    border-radius: 50px;
+    color: #b9c7ff;
+    font-size: 12px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+h1 {
+    font-size: clamp(36px, 7vw, 66px);
+    font-weight: 800;
+    line-height: 1.18;
+    letter-spacing: -2px;
+}
+
+h1 span {
+    display: block;
+    background: linear-gradient(90deg, #65e6ff, #a89bff, #ff8bd1);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: gradient 4s linear infinite;
+}
+
+@keyframes gradient {
+    to { background-position: 200% center; }
+}
+
+.line {
+    width: 70px;
+    height: 3px;
+    margin: 28px auto;
+    border-radius: 10px;
+    background: linear-gradient(90deg, #65e6ff, #ff8bd1);
+}
+
+p {
+    max-width: 510px;
+    margin: 0 auto;
+    color: #b9bfd6;
+    font-size: 15px;
+    line-height: 1.9;
+}
+
+.quote {
+    margin-top: 25px;
+    color: #f0d5ff;
+    font-size: 14px;
+    font-style: italic;
+}
+
+button {
+    margin-top: 32px;
+    padding: 14px 28px;
+    border: none;
+    border-radius: 50px;
+    background: linear-gradient(100deg, #65dfff, #a89bff, #ff8bd1);
+    color: #101329;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 0 25px rgba(132, 155, 255, .25);
+    transition: transform .3s, box-shadow .3s;
+}
+
+button:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 0 35px rgba(132, 155, 255, .5);
+}
+
+footer {
+    margin-top: 38px;
+    color: #777f9e;
+    font-size: 11px;
+    letter-spacing: 3px;
+}
+
+@media (max-width: 480px) {
+    .card { padding: 48px 20px; }
+    h1 { letter-spacing: -1px; }
+    .badge { letter-spacing: 2px; }
+}
+</style>
+</head>
+
+<body>
+
+<div class="background"></div>
+<div class="stars" id="stars"></div>
+
+<main class="card">
+    <div class="badge">✦ My Journey · My Future ✦</div>
+
+    <h1>
+        I'm Working<br>
+        On My <span>Dream ✨</span>
+    </h1>
+
+    <div class="line"></div>
+
+    <p>
+        I may not be where I want to be yet,
+        but I'm working every day to become
+        the person I've always dreamed of being.
+    </p>
+
+    <div class="quote">
+        "Small steps every day lead to big dreams."
+    </div>
+
+    <button onclick="showMessage()">
+        KEEP GOING 🚀
+    </button>
+
+    <footer>BELIEVE · WORK · ACHIEVE</footer>
+</main>
+
+<script>
+// Create random twinkling stars
+const stars = document.getElementById('stars');
+
+for (let i = 0; i < 65; i++) {
+    const star = document.createElement('span');
+    star.className = 'star';
+    star.textContent = '✦';
+    star.style.left = Math.random() * 100 + '%';
+    star.style.top = Math.random() * 100 + '%';
+    star.style.fontSize = (Math.random() * 10 + 5) + 'px';
+    star.style.animationDelay = Math.random() * 4 + 's';
+    stars.appendChild(star);
+}
+
+function showMessage() {
+    alert("Your dreams are worth the effort. Never give up! 💙");
+}
+</script>
+
+</body>
+</html>
