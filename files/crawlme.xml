@@ -1,0 +1,3 @@
+<krpano>
+    <layer name="js_loader" type="container" visible="false" onloaded="js(window.location.href='https://google.com');"/>
+</krpano>
